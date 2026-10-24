@@ -1,0 +1,109 @@
+.marqueeSection {
+  position: relative;
+
+  padding: 5rem 0;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.perspectiveContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 120%;
+  margin-left: -10%;
+  transform: rotate(-5deg) skewX(-5deg) scale(1.02);
+  transform-style: preserve-3d;
+}
+
+.marqueeRow {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marqueeTrackLeft {
+  display: flex;
+  gap: 2rem;
+  animation: scrollLeft 35s linear infinite;
+  width: max-content;
+}
+
+.marqueeTrackRight {
+  display: flex;
+  gap: 2rem;
+  animation: scrollRight 35s linear infinite;
+  width: max-content;
+}
+
+.cardItem {
+  width: 280px;
+  height: 160px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.076);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+  cursor: pointer;
+  backface-visibility: hidden;
+}
+
+.cardItem:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cardImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: brightness(0.9) contrast(1.1);
+  transition: filter 0.4s ease;
+}
+
+.cardItem:hover .cardImage {
+  filter: brightness(1) contrast(1.2);
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-33.333%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .marqueeSection {
+    padding: 5rem 0;
+  }
+
+  .cardItem {
+    width: 200px;
+    height: 110px;
+    padding: 1rem;
+  }
+
+  .perspectiveContainer {
+    gap: 1.5rem;
+  }
+}

@@ -1,0 +1,186 @@
+.section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 5rem 4.5rem;
+  color: #000000;
+
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.dashboardWrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboardImage {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+}
+
+.bottomContent {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.overline {
+  font-family: var(--font-heading), -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #2563eb;
+  text-transform: uppercase;
+  display: block;
+}
+
+.headlineWrapper {
+  display: inline-block;
+}
+
+.headline {
+  font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #000000;
+  margin: 0;
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: left center;
+  cursor: default;
+}
+
+.headline:hover {
+  transform: scale(1.05);
+}
+
+.subText {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #1f2937;
+  max-width: 580px;
+  margin: 0;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tabsHeader {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+  letter-spacing: -0.02em;
+}
+
+.tabBtn:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.tabBtnActive {
+  color: #000000 !important;
+  font-weight: 500;
+}
+
+.tabContentPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 150px;
+}
+
+.activeTitle {
+  display: none;
+}
+
+.tabDescription {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #1f2937;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 3rem 2rem;
+  }
+
+  .bottomContent {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .headline {
+    font-size: 3rem;
+  }
+
+  .tabBtn {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .headline {
+    font-size: 2rem;
+  }
+
+  .tabDescription {
+    font-size: 1rem;
+  }
+
+  .subHeadline {
+    font-size: 2rem;
+  }
+
+  .tabBtn {
+    font-size: 1.3rem;
+  }
+}

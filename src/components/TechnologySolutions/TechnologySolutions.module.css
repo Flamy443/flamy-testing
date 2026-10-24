@@ -1,0 +1,413 @@
+.section {
+  position: relative;
+  background-color: #ffffff;
+
+  padding: 5rem 0 0;
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+.scrollWrapper {
+  display: flex;
+  gap: 0rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+
+  scrollbar-width: none;
+
+}
+
+.scrollWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.introPanel {
+  width: 50vw;
+  min-height: 80vh;
+  height: auto;
+  background-color: #02012f;
+  border: 1px solid #3b82f6;
+
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.introHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.overline {
+  font-family: var(--font-heading), -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #3b82f6;
+  text-transform: uppercase;
+}
+
+.titleWrapper {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: left center;
+  cursor: default;
+}
+
+.title:hover {
+  transform: scale(1.05);
+}
+
+.description {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  overflow-y: auto;
+  color: #cecece;
+  margin: 0;
+}
+
+.servicePanel {
+  width: 50vw;
+  min-height: 80vh;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+
+.imageColumn {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0f172a;
+}
+
+.serviceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.95;
+  transition: transform 0.6s ease;
+}
+
+.textColumn {
+  width: 50%;
+  height: 100%;
+  padding: 2.5rem 2.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow-y: auto;
+  transition: background-color 0.4s ease;
+}
+
+.servicePanel:nth-child(even) .textColumn {
+  background: linear-gradient(135deg, #013196 0%, #091a52 100%);
+
+}
+
+.servicePanel:nth-child(odd) .textColumn {
+  background: linear-gradient(135deg, #5668f2 0%, #03185d 100%);
+}
+
+.cardNumber {
+  font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+  font-size: 4.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.serviceTitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.serviceDesc {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.arrowCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 1.5rem;
+}
+
+.arrowIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.servicePanel:hover {
+
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+}
+
+.servicePanel:hover .serviceImage {
+  transform: scale(1.04);
+}
+
+.servicePanel:hover .arrowCircle {
+  border-color: #ffffff;
+  background-color: #ffffff;
+}
+
+.servicePanel:nth-child(even):hover .arrowCircle {
+  color: #6b6fe0;
+}
+
+.servicePanel:nth-child(odd):hover .arrowCircle {
+  color: #013196;
+}
+
+@media (max-width: 1124px) {
+
+  .introPanel {
+    width: 100vw;
+    height: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .servicePanel {
+    width: 100vw;
+    height: 560px;
+  }
+
+  .textColumn {
+    padding: 1.5rem 1rem;
+  }
+
+  .cardNumber {
+    font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .serviceTitle {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .title {
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1124px) {
+  .servicePanel {
+    width: 100vw;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .imageColumn,
+  .textColumn {
+
+    width: 100%;
+    height: 50%;
+  }
+
+}
+
+.scrollHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  color: #3b82f6;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.scrollHintArrow {
+  width: 14px;
+  height: 14px;
+  animation: slideArrow 1.5s infinite ease-in-out;
+}
+
+@keyframes slideArrow {
+  0% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateX(6px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+}
+
+.layoutGrid {
+  display: flex;
+  width: 100%;
+}
+
+@media (max-width: 1124px) {
+  .layoutGrid {
+    flex-direction: column;
+  }
+
+  .introPanel,
+  .servicePanel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+}
+
+.solutionsList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.solutionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  color: #f1f5f9;
+}
+
+.solutionItemHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.solutionItemTitle {
+  font-family: var(--font-heading), -apple-system, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.solutionItemDetails {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  opacity: 0.85;
+  margin: 0 0 0 1.35rem;
+  line-height: 1.4;
+}
+
+.bulletDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  flex-shrink: 0;
+}
+
+.introImageWrapper {
+  width: 100%;
+  height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+}
+
+.introImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.introBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.ctaBtn {
+  font-family: var(--font-heading), -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 0.9rem 1.8rem;
+  border-radius: 99px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  width: fit-content;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+.ctaBtn:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.45);
+}

@@ -1,0 +1,747 @@
+.section {
+  width: 100%;
+  padding: 5rem 4.5rem;
+  background-color: var(--accent-bg);
+  position: relative;
+  overflow: hidden;
+
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.overline {
+  color: #3b82f6;
+  font-family: var(--font-heading), -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.secTitleWrapper {
+  display: inline-block;
+}
+
+.secTitle {
+  font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: left center;
+  cursor: default;
+}
+
+.secTitle:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .secTitle {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+}
+
+.secDescription {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.filterLabel {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #475569;
+}
+
+.btnRow {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.stateBtn {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.btnActive {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btnUnactive {
+  background-color: rgba(15, 23, 42, 0.6);
+  color: #94a3b8;
+  border-color: rgba(59, 130, 246, 0.15);
+}
+
+.btnUnactive:hover {
+  background-color: rgba(15, 23, 42, 0.9);
+  color: #ffffff;
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.countBadge {
+  background-color: rgba(255, 255, 255, 0.15);
+  font-size: 0.75rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  color: #e2e8f0;
+}
+
+.statusBtn {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.infoHint {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-family: -apple-system, sans-serif;
+  margin-top: 0.5rem;
+}
+
+.infoIcon {
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.legendBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.25rem;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.legendTitle {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #475569;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.legendDotActive {
+  width: 8px;
+  height: 8px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #2563eb;
+}
+
+.legendDotFuture {
+  width: 6px;
+  height: 6px;
+  border: 1.5px solid #64748b;
+  border-radius: 50%;
+}
+
+.legendDotSelected {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffffff;
+}
+
+.legendText {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.zoomControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
+  padding-top: 0.75rem;
+}
+
+.zoomBtn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.zoomBtn:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.resetBtn {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #94a3b8;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  font-family: -apple-system, sans-serif;
+  transition: all 0.2s;
+  margin-left: auto;
+}
+
+.resetBtn:hover {
+  color: #ffffff;
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.centerCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  gap: 1.5rem;
+}
+
+.miniMapBox {
+  width: 100%;
+  max-width: 350px;
+
+  border-radius: 12px;
+  padding: 0.75rem;
+  position: relative;
+}
+
+.miniUSMap {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.miniStatePath {
+  fill: rgba(15, 23, 42, 0.8);
+  stroke: #3b83f668;
+  stroke-width: 1;
+  transition: all 0.3s;
+}
+
+.miniStateActive {
+  fill: rgba(37, 99, 235, 0.15);
+  stroke: rgba(37, 99, 235, 0.5);
+  stroke-width: 2;
+  cursor: pointer;
+}
+
+.miniStateActive:hover {
+  fill: rgba(37, 99, 235, 0.3);
+}
+
+.miniStateSelected {
+  fill: rgba(37, 99, 235, 0.5);
+  stroke: #60a5fa;
+  stroke-width: 2.5;
+}
+
+.previewTag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+  padding-top: 0.4rem;
+  font-family: -apple-system, sans-serif;
+}
+
+.previewLabel {
+  font-size: 0.65rem;
+
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+
+.previewLink {
+  font-size: 0.7rem;
+  color: #3b82f6;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.previewLink:hover {
+  color: #60a5fa;
+}
+
+.zoomedMapContainer {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1;
+  position: relative;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+}
+
+.zoomedSVG {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: block;
+}
+
+.zoomedStatePath {
+  fill: rgba(15, 23, 42, 0.4);
+  stroke: #3b82f6;
+
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.zoomedStateGlow {
+  fill: none;
+  stroke: #2563eb;
+
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  filter: blur(8px);
+
+}
+
+.mapConnectorLine {
+  stroke: #64748b;
+  stroke-width: 1.5px;
+  fill: none;
+  transition: all 0.3s;
+}
+
+.connectorSelected {
+  stroke: #3b82f6;
+  stroke-width: 2px;
+}
+
+.cityGroup {
+  cursor: pointer;
+}
+
+.cityDot {
+  fill: #3b82f6;
+  stroke: #0f172a;
+  stroke-width: 1px;
+  transition: all 0.2s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.dotSelected {
+  fill: #ffffff;
+  stroke: #3b82f6;
+  stroke-width: 2px;
+  scale: 1.35;
+}
+
+.cityText {
+
+  font-size: 15px;
+
+  font-weight: 500;
+  fill: #94a3b8;
+  transition: all 0.2s;
+}
+
+.textSelected {
+  fill: #ffffff;
+  font-weight: 900;
+  font-size: 19px;
+}
+
+@media (max-width: 1100px) {
+  .cityText {
+    font-size: 16px;
+  }
+
+  .textSelected {
+    fill: #ffffff;
+    font-weight: 700;
+    font-size: 28px;
+  }
+}
+
+.cityGroup:hover .cityDot {
+  fill: #ffffff;
+  scale: 1.2;
+}
+
+.cityGroup:hover .cityText {
+  fill: #ffffff;
+}
+
+.pulseOuter {
+  fill: #3b82f6;
+  opacity: 0.12;
+  animation: pulseOuterAnim 3.5s infinite cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+  transform-box: fill-box;
+  pointer-events: none;
+}
+
+.pulseSelected {
+  fill: #3b82f6;
+  opacity: 0.22;
+  animation: pulseSelectedAnim 3.5s infinite cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transform-origin: center;
+  transform-box: fill-box;
+  pointer-events: none;
+}
+
+.pulseInner {
+  fill: #3b82f6;
+  opacity: 0.3;
+  animation: pulseInnerAnim 1.8s infinite ease-in-out;
+  transform-origin: center;
+  transform-box: fill-box;
+  pointer-events: none;
+}
+
+@keyframes pulseOuterAnim {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.95;
+  }
+
+  15% {
+    transform: scale(2.2);
+    opacity: 0.05;
+  }
+
+  20% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseSelectedAnim {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.95;
+  }
+
+  18% {
+    transform: scale(4.2);
+    opacity: 0.08;
+  }
+
+  25% {
+    transform: scale(4.6);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(4.6);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseInnerAnim {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.1;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+}
+
+.rightCol {
+  display: flex;
+  justify-content: center;
+}
+
+.detailCard {
+  width: 100%;
+
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(2, 6, 23, 0.95) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.activeDot {
+  width: 6px;
+  height: 6px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.activeLabel {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #22c55e;
+  letter-spacing: 0.05em;
+}
+
+.imageFrame {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCity {
+  font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+}
+
+.cardSub {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #3b82f6;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #94a3b8;
+  margin: 0 0 1.25rem 0;
+}
+
+.metaTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.85rem 0;
+  margin-bottom: 1.25rem;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-family: -apple-system, sans-serif;
+}
+
+.metaLabel {
+  color: #64748b;
+}
+
+.metaVal {
+  color: #f1f5f9;
+  font-weight: 500;
+}
+
+.mediaLinksRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.mediaLink {
+  background-color: rgba(59, 130, 246, 0.06);
+  color: #3b82f6;
+  font-family: -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.mediaLink:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.cardPagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.75rem;
+}
+
+.pageArrow {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.25rem 0.5rem;
+}
+
+.pageArrow:hover {
+  color: #ffffff;
+}
+
+.pageIndicator {
+  font-family: -apple-system, sans-serif;
+  font-size: 0.85rem;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+
+.zoomedStatePathUSA {
+  fill: rgba(15, 23, 42, 0.4);
+  stroke: rgba(59, 130, 246, 0.15);
+  stroke-width: 1.5;
+  transition: all 0.3s ease;
+}
+
+.zoomedStateActiveUSA {
+  fill: rgba(59, 130, 246, 0.1);
+  stroke: rgba(59, 130, 246, 0.4);
+  stroke-width: 2;
+}
+
+.pulseUpcoming {
+  fill: none;
+  stroke: rgba(245, 158, 11, 0.4);
+  stroke-width: 1.5;
+}
+
+.dotUpcoming {
+  fill: #f59e0b !important;
+  box-shadow: 0 0 10px #f59e0b;
+}
+
+.upcomingDot {
+  background-color: #f59e0b !important;
+  box-shadow: 0 0 8px #f59e0b !important;
+}
+
+.leaderLine {
+  stroke: rgba(59, 130, 246, 0.45);
+  stroke-width: 1.25;
+  stroke-dasharray: 2 2;
+  pointer-events: none;
+}

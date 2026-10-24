@@ -1,0 +1,579 @@
+.header {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  padding: 0rem 0;
+
+  z-index: 1000000000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.headerSubpage {}
+
+.headerScrolled {
+  background: var(--accent-bg);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(20px);
+  top: 1%;
+  width: 98%;
+  left: 1%;
+  border-radius: 40px;
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.container {
+  max-width: 1600px;
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 102;
+}
+
+.logoLink {
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 105;
+  transition: transform 0.75s cubic-bezier(0.25, 1, 0.3, 1);
+}
+
+@media (min-width: 1025px) {
+  .logoLink {
+    transform: translateX(var(--hero-logo-offset, 0px));
+  }
+}
+
+.logoImage {
+  height: 85px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.logoDefault {
+  filter: brightness(0) invert(1);
+}
+
+.logoCustom {
+  filter: none;
+
+  height: 60px;
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 1125px) {
+  .logoImage {
+    height: 75px;
+  }
+
+  .logoCustom {
+    height: 55px;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+  margin: 0 auto;
+  transition: transform 0.75s cubic-bezier(0.25, 1, 0.3, 1);
+  z-index: 105;
+}
+
+@media (min-width: 1025px) {
+  .nav {
+    transform: translateX(var(--hero-nav-offset, 0px));
+  }
+}
+
+.navLinkWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.navLinkFlexRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navLink {
+  position: relative;
+  font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+  font-size: clamp(0.725rem, 1vw, 1.2rem);
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 0.8rem 0rem;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navLink:hover,
+.navLinkHovered {
+  color: #ffffff !important;
+}
+
+.navLinkHovered::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+.navLinkActive {
+  color: #ffffff;
+  scale: 1.1;
+  border-bottom: 1px solid var(--accent-blue);
+  font-weight: 600;
+}
+
+.activeDot {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 10px 40px 40px;
+  width: 100%;
+  background: var(--accent-bg);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 150px 0 6rem 0;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-15px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownContainer {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 4.5rem;
+}
+
+.dropdownGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+}
+
+.dropdownItem {
+  display: flex;
+  gap: 1.5rem;
+  text-decoration: none;
+  padding: 1.2rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.itemIcon {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.dropdownLogo {
+  height: 65px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+@media (max-width: 1124px) {
+  .dropdownLogo {
+    height: 40px;
+    margin: 30% 0 0 0;
+  }
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.itemName {
+  font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+  font-size: 2rem;
+  font-weight: 550;
+  color: #ffffff;
+  margin: 0;
+}
+
+.itemDesc {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  max-width: 30vw;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.stockTicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  padding: 0.45rem 1.1rem;
+  color: #ffffff;
+  font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+  font-size: 0.825rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.75s cubic-bezier(0.25, 1, 0.3, 1), transform 0.75s cubic-bezier(0.25, 1, 0.3, 1);
+  z-index: 105;
+}
+
+.actionPill {
+  pointer-events: auto !important;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, opacity 0.75s cubic-bezier(0.25, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.actionPill:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #00ffcc;
+  transform: scale(1.05);
+}
+
+@media (min-width: 1025px) {
+  .stockTicker {
+    transform: translateX(var(--hero-ticker-offset, 0px));
+  }
+}
+
+.tickerDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #0088ff;
+  box-shadow: 0 0 6px rgba(0, 136, 255, 0.8);
+}
+
+.tickerText {
+  white-space: nowrap;
+}
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 105;
+}
+
+.closeIcon {
+  font-size: 2.2rem;
+  color: #ffffff;
+  font-weight: 300;
+  display: block;
+  line-height: 1;
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: #ffffff;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2.5px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+.menuOpen .hamburger {
+  background: transparent;
+}
+
+.menuOpen .hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.menuOpen .hamburger::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.mobileDropdownBtn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobileCollapsibleContainer {
+  width: 100%;
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.mobileItemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobileSubItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.mobileSubIcon {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.mobileSubContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobileSubName {
+  font-family: 'Cabinet Grotesk', -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 550;
+  color: #ffffff;
+}
+
+.mobileSubDesc {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.mobileLegalLinks,
+.mobileSocials {
+  display: none;
+}
+
+@media (max-width: 1124px) {
+  .header {
+    top: 5px;
+    width: 100%;
+    left: 0px;
+
+  }
+
+  .headerScrolled {
+    top: 15px;
+    width: 95%;
+    left: 2.5%;
+  }
+
+  .container {
+    padding: 0rem 1.2rem;
+    height: 75px;
+  }
+
+  .stockTicker {
+    display: none;
+  }
+
+  .menuToggle {
+    display: block;
+  }
+
+  .nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: -110vw;
+    width: 105vw;
+    height: calc(100vh + 10px);
+    overflow-y: auto;
+    background: var(--accent-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    flex-direction: column;
+    padding: 0rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.8rem;
+    border-radius: 10px;
+    margin: 0;
+    z-index: 100;
+    transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav::-webkit-scrollbar {
+    width: 6px;
+    display: block !important;
+  }
+
+  .nav::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+
+  .navOpen {
+    left: -5vw;
+    top: -10px;
+
+    padding: 100px 2.5rem 3rem 2.5rem;
+  }
+
+  .navLinkWrapper {
+    width: 100%;
+    padding-top: 0.5rem;
+
+  }
+
+  .navLink {
+
+    width: auto;
+    align-items: flex-start;
+    padding: 0.1rem 0;
+    border-bottom: none;
+    font-size: 1rem;
+  }
+
+  .activeDot {
+    bottom: unset;
+    left: unset;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .dropdownMenu {
+    display: none;
+  }
+
+  .dropdownGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .dropdownItem {
+    padding: 0.5rem;
+
+  }
+
+  .itemDesc {
+    display: none;
+  }
+
+  .mobileLegalLinks {
+    display: flex;
+    gap: 2rem;
+
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+  }
+
+  .mobileLegalLink {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+
+  .mobileLegalLink:hover {
+    color: white;
+  }
+
+  .mobileSocials {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  .mobileSocialIcon {
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+
+  .mobileSocialIcon:hover {
+    color: #3b82f6;
+    transform: translateY(-2px);
+  }
+}
+
+@media (min-width: 1025px) {
+  .mobileDropdownBtn {
+    display: none !important;
+  }
+}
