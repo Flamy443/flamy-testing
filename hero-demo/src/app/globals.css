@@ -165,6 +165,9 @@ html{scroll-behavior:smooth}
 .navbar.nav-hidden{transform:translateY(-140%)}
 @media (prefers-reduced-motion:reduce){.navbar{transition:none}.announcement-marquee-content{animation:none}}
 
-/* Flamy logo: black artwork, inverted to white over the dark hero, black again on the white scrolled bar */
-.flamy-logo{height:clamp(26px,4vw,38px);width:auto;display:block;filter:invert(1);transition:filter .4s ease}
-.navbar.shadow .flamy-logo{filter:none}
+/* Flamy logo: white artwork blended with "difference" so it auto-inverts against whatever is behind it
+   (dark on cream / white, light on the dark hero). It lives outside <nav> so the blend reaches the page. */
+.flamy-logo-fixed{position:fixed;top:30px;left:clamp(1.5rem,4vw,3.5rem);z-index:60;display:block;mix-blend-mode:difference;transition:transform .6s cubic-bezier(.22,1,.36,1);will-change:transform}
+.flamy-logo-fixed.nav-hidden{transform:translateY(-200%)}
+.flamy-logo{height:clamp(26px,4vw,38px);width:auto;display:block;filter:invert(1)}
+@media(max-width:968px){.flamy-logo-fixed{top:22px;left:1.25rem}}

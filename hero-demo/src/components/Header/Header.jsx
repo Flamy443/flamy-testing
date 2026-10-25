@@ -58,17 +58,20 @@ export default function Header() {
 
   return (
     <>
+      <a
+        href="#"
+        className={`flamy-logo-fixed ${hidden && !open ? "nav-hidden" : ""}`}
+        aria-label="Flamy home"
+      >
+        <img
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/flamy-logo.png`}
+          alt="Flamy"
+          className="flamy-logo"
+        />
+      </a>
       <nav className={`navbar ${scrolled ? "shadow" : ""} ${hidden && !open ? "nav-hidden" : ""}`}>
         <div className="header-container">
-          <div className="logo-area">
-            <a href="#" className="logo-link" aria-label="Flamy home">
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/flamy-logo.png`}
-                alt="Flamy"
-                className="header-logo-img flamy-logo"
-              />
-            </a>
-          </div>
+          <div className="logo-area" />
           <div className="middle-area">
             <div className="desktop-nav-pill">
               <a href="#about" className="nav-link">ABOUT</a>
