@@ -10,6 +10,7 @@ import Reviews from "@/components/Sections/Reviews";
 import Faq from "@/components/Sections/Faq";
 import Blogs from "@/components/Sections/Blogs";
 import Footer from "@/components/Footer/Footer";
+import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Faq />
       <Blogs />
       <Footer />
+      <ScrollReveal />
     </div>
   );
 }

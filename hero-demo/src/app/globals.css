@@ -123,3 +123,35 @@
 .overlay-text{font-weight:600;letter-spacing:.04em}
 .feature-image{background-size:cover;background-position:center}
 html{scroll-behavior:smooth}
+
+/* ===== Scroll reveal hero (pinned, GSAP scrubbed) ===== */
+.rv-hero{--rv-cream:#fffaf0;--rv-accent:#008ba9;--rv-charcoal:#083442;background-color:var(--rv-cream);width:100%;height:100vh;position:relative;overflow:hidden}
+.rv-underlay{position:absolute;inset:0;z-index:1;pointer-events:none}
+.rv-interactive{position:absolute;inset:0;z-index:2;pointer-events:none}
+.rv-video{position:absolute;inset:0;background:linear-gradient(120deg,#0f6f86,#073b4a,#0a5353,#008ba9);background-size:300% 300%;animation:rvShift 12s ease-in-out infinite alternate}
+@keyframes rvShift{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+.rv-svg-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none;will-change:transform,opacity}
+.rv-svg-text-group{transform-origin:50%;will-change:transform}
+.rv-svg-text{letter-spacing:-.01em;text-transform:uppercase;font-family:Impact,Haettenschweiler,Arial Narrow Bold,sans-serif;font-size:clamp(10rem,15vw,17rem);font-weight:1000;line-height:1}
+.rv-scroll-indicator{position:absolute;bottom:5vh;left:50%;transform:translate(-50%);z-index:10;pointer-events:none;display:flex;align-items:center;justify-content:center;gap:7px;font-size:.85rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--rv-accent);animation:rvScrollBounce 2s ease-in-out infinite}
+@keyframes rvScrollBounce{0%,to{opacity:.8;transform:translate(-50%)translateY(0)}50%{opacity:1;transform:translate(-50%)translateY(7px)}}
+.rv-banner{background-color:var(--rv-cream);text-align:center;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;height:100vh;padding:100px 40px;position:relative}
+.rv-heading{letter-spacing:.04em;text-transform:uppercase;max-width:100%;color:var(--rv-charcoal);margin:0 auto 35px;font-size:clamp(4.5rem,6.8vw,7.8rem);font-weight:900;line-height:1.1}
+.rv-subheading{opacity:.85;max-width:700px;color:var(--rv-charcoal);margin:0 auto;font-size:clamp(1rem,1.3vw,1.3rem);font-weight:400;line-height:1.6}
+.rv-heading-row{white-space:nowrap;will-change:transform;width:100%;display:flex;perspective:1200px;flex-wrap:nowrap;justify-content:center;align-items:center;gap:.02em;margin-bottom:-.12em;line-height:.8;padding:0}
+.rv-char-wrapper{perspective:1000px;width:auto;height:1.1em;transform-style:preserve-3d;vertical-align:middle;display:inline-block;position:relative}
+.rv-char{backface-visibility:hidden;justify-content:center;align-items:center;width:100%;height:100%;font-size:clamp(2rem,8.2vw,7.8rem);font-weight:900;display:flex;position:absolute;top:0;left:0}
+.rv-char-front{color:#fbbf24;filter:blur(8px);opacity:0;width:auto;height:auto;display:inline-flex;top:auto;left:auto;transform:rotateY(0);position:relative!important}
+.rv-char-back{color:var(--rv-charcoal);opacity:1;transform:rotateY(180deg)}
+.rv-char-wrapper.flip-cw .rv-char-back{transform:rotateY(180deg)}
+.rv-char-wrapper.flip-ccw .rv-char-back{transform:rotateY(-180deg)}
+.rv-char-wrapper.flip-x .rv-char-back{transform:rotateX(180deg)}
+.rv-char-wrapper.flip-x-ccw .rv-char-back{transform:rotateX(-180deg)}
+@media (max-width:768px){
+.rv-svg-text{letter-spacing:.008em;font-size:clamp(5.5rem,14vw,10rem)}
+.rv-scroll-indicator{letter-spacing:.14em;font-size:.8rem;bottom:10vh}
+.rv-banner{padding:80px 15px!important}
+.rv-heading{margin:0 auto 20px!important;font-size:clamp(3rem,9vw,5.5rem)!important}
+.rv-heading-row{flex-direction:column!important;gap:0!important;height:auto!important;margin-bottom:0!important}
+.rv-word{justify-content:center!important;width:100%!important;margin-right:0!important;display:flex!important}
+.rv-char{font-size:clamp(3.8rem,11vw,5.5rem)!important}}
