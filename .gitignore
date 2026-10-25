@@ -1,5 +1,5 @@
-node_modules
-.next
-.DS_Store
-.env*
-.vercel
+# Only the hero demo is tracked in this repo; local Duos/Dorado files stay untracked
+/*
+!/.gitignore
+!/.github
+!/hero-demo
