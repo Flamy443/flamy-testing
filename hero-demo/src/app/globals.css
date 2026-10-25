@@ -115,7 +115,7 @@
 @media(min-width:1024px){.footer-copyright{margin-top:2.5rem;font-size:.75rem}}
 .footer-powered-by{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-top:.7rem;text-decoration:none;color:#fff;opacity:.3;transition:all .3s ease;width:fit-content;margin-left:auto;margin-right:auto}
 .footer-powered-by:hover{opacity:1;transform:translateY(-2px)}
-@media(min-width:1024px){.footer-powered-by{margin-top:.25rem;font-size:.75rem}
+@media(min-width:1024px){.footer-powered-by{margin-top:.25rem;font-size:.75rem}}
 @media(max-width:768px){.footer-powered-by{margin-top:.8rem}}
 .logo-text{color:#fff;font-weight:700;letter-spacing:.08em;font-size:clamp(.8rem,1.6vw,1.1rem)}
 .navbar.shadow .logo-text{color:#066b77}
@@ -171,3 +171,9 @@ html{scroll-behavior:smooth}
 .flamy-logo-fixed.nav-hidden{transform:translateY(-200%)}
 .flamy-logo{height:clamp(26px,4vw,38px);width:auto;display:block;filter:invert(1)}
 @media(max-width:968px){.flamy-logo-fixed{top:22px;left:1.25rem}}
+
+/* mobile: hamburger must be visible over the dark hero, teal once the bar turns white */
+.hamburger-btn .bar{background-color:#fff}
+.navbar.shadow .hamburger-btn .bar{background-color:var(--primary)}
+.bar{display:block;width:100%;height:2px;transition:all .3s ease}
+.mobile-menu-overlay{background-color:#fffaf0}
