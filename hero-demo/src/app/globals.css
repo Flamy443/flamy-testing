@@ -164,3 +164,7 @@ html{scroll-behavior:smooth}
 .navbar{will-change:transform}
 .navbar.nav-hidden{transform:translateY(-140%)}
 @media (prefers-reduced-motion:reduce){.navbar{transition:none}.announcement-marquee-content{animation:none}}
+
+/* Flamy logo: black artwork, inverted to white over the dark hero, black again on the white scrolled bar */
+.flamy-logo{height:clamp(26px,4vw,38px);width:auto;display:block;filter:invert(1);transition:filter .4s ease}
+.navbar.shadow .flamy-logo{filter:none}

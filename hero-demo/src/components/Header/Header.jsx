@@ -61,8 +61,12 @@ export default function Header() {
       <nav className={`navbar ${scrolled ? "shadow" : ""} ${hidden && !open ? "nav-hidden" : ""}`}>
         <div className="header-container">
           <div className="logo-area">
-            <a href="#" className="logo-link logo-text">
-              SAMPLE ANIMAL HOSPITAL
+            <a href="#" className="logo-link" aria-label="Flamy home">
+              <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/flamy-logo.png`}
+                alt="Flamy"
+                className="header-logo-img flamy-logo"
+              />
             </a>
           </div>
           <div className="middle-area">
