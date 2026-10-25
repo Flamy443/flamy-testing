@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const SERVICES = [
   "Wellness Exam",
@@ -15,19 +15,50 @@ const SERVICES = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  const lastY = useRef(0);
+  const ticking = useRef(false);
 
+  // one passive, rAF-throttled scroll listener: shadow state + hide on scroll down / show on scroll up
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    const update = () => {
+      const y = window.scrollY;
+      setScrolled((v) => (v === y > 50 ? v : y > 50));
+      const goingDown = y > lastY.current && y > 200;
+      setHidden((v) => (v === goingDown ? v : goingDown));
+      lastY.current = y;
+      ticking.current = false;
+    };
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+      requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // lock page scroll while the mobile menu is open; close on Escape or when resized to desktop
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    const onResize = () => window.innerWidth >= 1224 && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
 
   const toggle = () => setOpen((v) => !v);
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? "shadow" : ""}`}>
+      <nav className={`navbar ${scrolled ? "shadow" : ""} ${hidden && !open ? "nav-hidden" : ""}`}>
         <div className="header-container">
           <div className="logo-area">
             <a href="#" className="logo-link logo-text">
@@ -65,7 +96,7 @@ export default function Header() {
             <a href="#contact-footer" className="cta-link">REQUEST A VISIT</a>
           </div>
           <div className="mobile-controls">
-            <button className="hamburger-btn" onClick={toggle} aria-label="Open menu">
+            <button className="hamburger-btn" onClick={toggle} aria-label="Open menu" aria-expanded={open} aria-controls="mobile-menu">
               <span className="bar" />
               <span className="bar" />
             </button>
@@ -73,7 +104,7 @@ export default function Header() {
         </div>
       </nav>
 
-      <div className={`mobile-menu-overlay ${open ? "open" : ""}`}>
+      <div id="mobile-menu" aria-hidden={!open} className={`mobile-menu-overlay ${open ? "open" : ""}`}>
         <div className="mobile-header">
           <span className="mobile-menu-title">MENU</span>
           <button className="close-btn" onClick={toggle} aria-label="Close menu">✕</button>
